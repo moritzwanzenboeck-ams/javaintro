@@ -1,29 +1,19 @@
 package GUI;
 
-import org.eclipse.swt.widgets.Display;
-
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.ui.internal.actions.ClearWorkingSetAction;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import data.Mensch;
-
-import java.io.File;
-import java.io.FileWriter;
+import java.awt.Button;
+import java.awt.Label;
 import java.io.IOException;
-import java.io.Writer;
-import java.util.ArrayList;
+
+import javax.xml.soap.Text;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.awt.SWT_AWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.MessageBox;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.MessageBox;
+import org.eclipse.swt.widgets.Shell;
+
+import data.Mensch;
 
 public class MyGui {
 
