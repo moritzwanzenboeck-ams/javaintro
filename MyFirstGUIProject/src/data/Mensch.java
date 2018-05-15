@@ -1,7 +1,11 @@
 package data;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.io.Writer;
+import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
@@ -10,6 +14,7 @@ import javax.crypto.EncryptedPrivateKeyInfo;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 public class Mensch {
 	
@@ -22,6 +27,20 @@ public class Mensch {
 			writer1.flush();
 			writer1.close();
 		}
+	public static void ReadList() throws FileNotFoundException {
+			
+				Gson gson1 = new GsonBuilder().serializeNulls().create();
+				Reader reader = new FileReader("C:\\temp\\output.json");
+				ArrayList<Mensch> menschenRead = new ArrayList<>();
+				Type listType = new TypeToken <ArrayList<Mensch>>(){}.getType();
+				menschenRead = gson1.fromJson(reader, listType);
+				for (int i = 0; i < menschenRead.size() ; i++)
+					System.out.println(menschenRead.get(i));
+					
+			}
+			
+		
+	
 	
 	
 

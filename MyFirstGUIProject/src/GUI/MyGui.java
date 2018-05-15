@@ -12,10 +12,14 @@ import com.google.gson.GsonBuilder;
 import data.Mensch;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
 import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.GroupLayout.SequentialGroup;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.awt.SWT_AWT;
@@ -24,6 +28,7 @@ import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.widgets.List;
 
 public class MyGui {
 
@@ -36,6 +41,7 @@ public class MyGui {
 	private Text plz_textfeld;
 	private Label lblOrt;
 	private Text ort_textfeld;
+	private List guilist;
 
 	/**
 	 * Launch the application.
@@ -94,6 +100,7 @@ public class MyGui {
 					System.out.println(Mensch.getMenschlist().get(i));
 				}
 				clearMask();
+				guilist.add(Mensch.getMenschlist().toString());
 				//
 				
 				
@@ -158,6 +165,8 @@ public class MyGui {
 			public void widgetSelected(SelectionEvent e) {
 				try {
 					Mensch.SaveList();
+					
+					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
@@ -170,6 +179,25 @@ public class MyGui {
 		});
 		btnSave.setBounds(202, 194, 75, 25);
 		btnSave.setText("Save");
+		
+		Button btnRead = new Button(shell, SWT.NONE);
+		btnRead.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				try {
+					Mensch.ReadList();
+					
+					
+				} catch (FileNotFoundException e1) {
+					System.out.println("Fehler!");
+				}
+			}
+		});
+		btnRead.setBounds(10, 318, 75, 25);
+		btnRead.setText("Read");
+		
+		setGuilist(new List(shell, SWT.BORDER));
+		getGuilist().setBounds(283, 33, 229, 279);
 
 	}
 	protected void clearMask() {
@@ -204,5 +232,12 @@ public class MyGui {
 	}	
 	public Text getOrt_textfeld() {
 		return ort_textfeld;
+	}
+	public List getGuilist() {
+		return guilist;
+	}
+
+	public void setGuilist(List guilist) {
+		this.guilist = guilist;
 	}
 }
