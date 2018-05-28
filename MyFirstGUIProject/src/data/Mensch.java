@@ -29,14 +29,14 @@ public class Mensch {
 		}
 	public static void ReadList() throws FileNotFoundException {
 			
-				Gson gson1 = new GsonBuilder().serializeNulls().create();
-				Reader reader = new FileReader("C:\\temp\\output.json");
-				ArrayList<Mensch> menschenRead = new ArrayList<>();
-				Type listType = new TypeToken <ArrayList<Mensch>>(){}.getType();
-				menschenRead = gson1.fromJson(reader, listType);
-				for (int i = 0; i < menschenRead.size() ; i++)
-					System.out.println(menschenRead.get(i));
-					
+			Gson gson1 = new GsonBuilder().serializeNulls().create();
+			Reader reader = new FileReader("C:\\temp\\output.json");
+			ArrayList<Mensch> menschenRead = new ArrayList<>();
+			Type listType = new TypeToken <ArrayList<Mensch>>(){}.getType();
+			menschenRead = gson1.fromJson(reader, listType);
+			for (int i = 0; i < menschenRead.size() ; i++)
+				System.out.println(menschenRead.get(i));
+				
 			}
 			
 		
