@@ -27,15 +27,15 @@ public class Mensch {
 			writer1.flush();
 			writer1.close();
 		}
+	private static ArrayList<Mensch> menschenRead = new ArrayList<>();
 	public static void ReadList() throws FileNotFoundException {
 			
 			Gson gson1 = new GsonBuilder().serializeNulls().create();
 			Reader reader = new FileReader("C:\\temp\\output.json");
-			ArrayList<Mensch> menschenRead = new ArrayList<>();
 			Type listType = new TypeToken <ArrayList<Mensch>>(){}.getType();
-			menschenRead = gson1.fromJson(reader, listType);
-			for (int i = 0; i < menschenRead.size() ; i++)
-				System.out.println(menschenRead.get(i));
+			setMenschenRead(gson1.fromJson(reader, listType));
+			for (int i = 0; i < getMenschenRead().size() ; i++)
+				System.out.println(getMenschenRead().get(i));
 				
 			}
 			
@@ -112,6 +112,12 @@ public class Mensch {
 	}
 	public static ArrayList<Mensch> getMenschlist() {
 		return menschlist;
+	}
+	public static ArrayList<Mensch> getMenschenRead() {
+		return menschenRead;
+	}
+	public static void setMenschenRead(ArrayList<Mensch> menschenRead) {
+		Mensch.menschenRead = menschenRead;
 	}
 	
 	}
