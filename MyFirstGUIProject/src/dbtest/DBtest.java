@@ -17,7 +17,7 @@ public class DBtest {
 		}
 		
 		public DBtest() throws SQLException {
-			Connection conn = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/moritzwanzenboeck/Documents/dbtest1.accdb;memory=false");
+			Connection conn = DriverManager.getConnection("jdbc:ucanaccess://C:/Users/Moritz/git/javaintro/MyFirstGUIProject/db/dbtest1.accdb;memory=false");
 			
 			Statement stmt = conn.createStatement();
 			stmt.execute("INSERT INTO adresse (vorname, nachname, ort, plz)" + "VALUES ('Clemens','Thalhammer','Wien',1190)");
